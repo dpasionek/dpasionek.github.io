@@ -30,6 +30,38 @@ h6 {
     background-size: cover;
 }
 
+.about-header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/clouds.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.small-item-header {
+ margin-top: -35px;
+ padding-top: 150px;
+ padding-bottom: 150px;
+ text-align: center;
+ color: #f8f8f8;
+ background: url(../img/about-header-1.jpg) no-repeat center center;
+ background-size: cover;
+}
+
+.small-item-header-1 {
+ padding-top: 150px;
+ padding-bottom: 150px;
+ text-align: center;
+ color: #f8f8f8;
+ background: url(../img/rose.jpg) no-repeat center center; 
+ background-size: cover;
+}
+.about-page {
+ position: relative;
+ padding-top: 7%;
+ padding-bottom: 7%;
+}
 .intro-message {
     position: relative;
     padding-top: 20%;
@@ -98,6 +130,18 @@ h6 {
     float: left;
     width: 200px;
     border-top: 3px solid #e7e7e7;
+}
+
+.spacer-center {
+    float: center;
+    width: 600px;
+    border-top: 3px solid #a1a1a1;
+}
+
+.spacer-center-light {
+    float: center;
+    width: 600px;
+    border-top: 3px solid #fcfcfc;
 }
 
 .banner {
