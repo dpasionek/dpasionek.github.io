@@ -20,13 +20,31 @@ h6 {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
 }
-
+.circle-avatar {
+	max-width: 100%;
+	width: 100%;
+	height:auto;
+	display:block;
+	border-radius:50%;
+	background-position-y: center;
+	background-position-x: center;
+	background-repeat: no-repeat;
+}
 .intro-header {
     padding-top: 50px;
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
     background: url(../img/intro-bg.jpg) no-repeat center center;
+    background-size: cover;
+}
+
+.prog-header {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+    color: #f8f8f8;
+    background: url(../img/about-header-1.jpg) no-repeat center center;
     background-size: cover;
 }
 
@@ -57,11 +75,13 @@ h6 {
  background: url(../img/rose.jpg) no-repeat center center; 
  background-size: cover;
 }
+
 .about-page {
  position: relative;
  padding-top: 7%;
  padding-bottom: 7%;
 }
+
 .intro-message {
     position: relative;
     padding-top: 20%;
