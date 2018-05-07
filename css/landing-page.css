@@ -38,7 +38,11 @@ h6 {
     background: url(../img/sun.jpg) no-repeat center center;
     background-size: cover;
 }
-
+.fade {
+    margin: 50px;
+    padding: 50px;
+    opacity: 1;
+}
 .prog-header {
     padding-top: 50px;
     padding-bottom: 50px;

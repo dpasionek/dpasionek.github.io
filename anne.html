@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<!--- Theme adopted from Bootstrap Framework, modified by Dante Pasionel -->
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, intial-scale=1, shrink-to-fit=no">
+	<title>Dante Pasionek | About</title>
+
+	<link href="vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+	<link href="css/landing-page.css" rel="stylesheet">
+	<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script>
+		$(window).on("load",function() {
+		  $(window).scroll(function() {
+		    var windowBottom = $(this).scrollTop() + $(this).innerHeight();
+		    $(".fade").each(function() {
+		      /* Check the location of each desired element */
+		      var objectBottom = $(this).offset().top + $(this).outerHeight();
+		      
+		      /* If the element is completely within bounds of the window, fade it in */
+		      if (objectBottom < windowBottom) { //object comes into view (scrolling down)
+		        if ($(this).css("opacity")==0) {$(this).fadeTo(500,1);}
+		      } else { //object goes out of view (scrolling up)
+		        if ($(this).css("opacity")==1) {$(this).fadeTo(500,0);}
+		      }
+		    });
+		  }).scroll(); //invoke scroll-handler on page-load
+		});
+	</script>
+</head>
+<div class="jumbotron jumbotron-fluid">
+	<div class="container">
+		<h1 class="display-4">To Anne</h1>
+		<p class="lead">A story of friendship, created by Dante</p>
+	</div>
+</div>
+<center>
+<h1>Today is May 7th 2018!</h1>
+</center>
+
+<center>
+	<h3>A story that began in the 6th grade....but I only have pictures from recently.</h3>
+</center>
+<center>
+<div class="container">
+	<div class="row">
+		<div class="col-sm">
+			<div class="fade">
+				<img src="img/foranne/anne1-test.jpg"></img>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="fade">
+	<center>
+		 <h3> As finals seasons approach I just wanted you to know </h3>
+	</center>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm">
+			<div class="fade">
+				<img src="img/foranne/anne2-test.jpg"></img>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="fade">
+	<center>
+		 <h3> That you're brilliant and amazing </h3>
+	</center>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm">
+			<div class="fade">
+				<img src="img/foranne/anne4-test.jpg"></img>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="fade">
+	<center>
+		 <h3> And you got this </h3>
+	</center>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-sm">
+			<div class="fade">
+				<img src="img/foranne/anne5-test.jpg"></img>
+			</div>
+		</div>
+	</div>
+</div>
+</center>
+<div class="fade">
+	<center>
+		 <i class="fa fa-heart"></i>
+	</center>
+</div>
+
