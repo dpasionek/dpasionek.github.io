@@ -23,26 +23,26 @@
 		<input hidden id="emotion">
 		<input hidden id="rating">
 		<input hidden id="comments">
-		<input type="button" onclick="setEmotion(this.value)">Happiness</input>
-		<input type="button" onclick="setEmotion(this.value)">Affection</input>
-		<input type="button"  onclick="setEmotion(this.value)">Interest</input>
-		<input type="button"  onclick="setEmotion(this.value)">Excitement</input>
-		<input type="button"  onclick="setEmotion(this.value)">Pride</input>
-		<input type="button"  onclick="setEmotion(this.value)">Desire</input>
-		<input type="button"  onclick="setEmotion(this.value)">Love</input>
-		<input type="button"  onclick="setEmotion(this.value)">Loved</input>
-		<input type="button"  onclick="setEmotion(this.value)">Thankfullness</input>
-		<input type="button"  onclick="setEmotion(this.value)">Stress</input>
-		<input type="button"  onclick="setEmotion(this.value)">Hurt</input>
-		<input type="button"  onclick="setEmotion(this.value)">Sadness</input>
-		<input type="button"  onclick="setEmotion(this.value)">Irritation</input>
-		<input type="button"  onclick="setEmotion(this.value)">Anger</input>
-		<input type="button"  onclick="setEmotion(this.value)">Pity</input>
-		<input type="button"  onclick="setEmotion(this.value)">Disgust</input>
-		<input type="button"  onclick="setEmotion(this.value)">Guilt</input>
-		<input type="button"  onclick="setEmotion(this.value)">Envy</input>
-		<input type="button"  onclick="setEmotion(this.value)">Regret</input>
-		<input type="button"  onclick="setEmotion(this.value)">Shame</input>
+		<input type="button" onclick="setEmotion(this.value)" value="Happiness"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Affection"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Interest"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Excitement"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Pride"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Desire"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Love"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Loved"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Thankfulness"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Stress"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Hurt"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Sadness"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Irritation"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Anger"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Pity"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Disgust"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Guilt"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Envy"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Regret"/>
+		<input type="button" onclick="setEmotion(this.value)" value="Shame"/>
 		<input id="rating", type="range", min="1", max="10" onchange="document.getElementById('rating-value').value=this.value" /><p id="rating-value"></p>
 		<textarea id="comments">
 
@@ -69,7 +69,7 @@
 
 	function test() {
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST", yourUrl, true);
+		xhr.open("POST", "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec", true);
 		xhr.setRequestHeader('Content-Type', 'application/json');
 		xhr.send(JSON.stringify({
 		    "Emotion": document.getElementById("emotion"),
