@@ -88,6 +88,20 @@
 		
 	}
 	
+	function post() {
+	  var url = "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec&callback=googleDocCallback"
+	  fetch(url, { method: "POST", body: JSON.stringify({
+				    "Emotion": document.getElementById("emotion"),
+				    "Rating": document.getElementById("rating"),
+				    "Comments": document.getElementById("comments"),
+				}) })
+	    .then((res) => {
+	      console.log(res.status);
+	      return res.text();
+	    })
+    .then((res) => console.log(res));
+}
+	
 	window.googleDocCallback = function () { return true; };
 
 	
