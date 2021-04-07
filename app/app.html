@@ -68,8 +68,9 @@
 	}
 
 	function test() {
+		var url = "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec&callback=googleDocCallback"
 		var xhr = new XMLHttpRequest();
-		xhr.open("POST", "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec&callback=?", false);
+		xhr.open("POST", url, false);
 		xhr.setRequestHeader('Content-Type', 'text/plain');
 		xhr.send(JSON.stringify({
 		    "Emotion": document.getElementById("emotion"),
@@ -78,5 +79,7 @@
 		}));
 	}
 	
+	window.googleDocCallback = function () { return true; };
+
 	
 </script>
