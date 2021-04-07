@@ -1,8 +1,6 @@
 <html>
 	<head>
 		<meta charset="utf-8"/>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,31 +23,31 @@
 		<input hidden id="emotion">
 		<input hidden id="rating">
 		<input hidden id="comments">
-		<button onclick="setEmotion(this.value)">Happiness</button>
-		<button onclick="setEmotion(this.value)">Affection</button>
-		<button onclick="setEmotion(this.value)">Interest</button>
-		<button onclick="setEmotion(this.value)">Excitement</button>
-		<button onclick="setEmotion(this.value)">Pride</button>
-		<button onclick="setEmotion(this.value)">Desire</button>
-		<button onclick="setEmotion(this.value)">Love</button>
-		<button onclick="setEmotion(this.value)">Loved</button>
-		<button onclick="setEmotion(this.value)">Thankfullness</button>
-		<button onclick="setEmotion(this.value)">Stress</button>
-		<button onclick="setEmotion(this.value)">Hurt</button>
-		<button onclick="setEmotion(this.value)">Sadness</button>
-		<button onclick="setEmotion(this.value)">Irritation</button>
-		<button onclick="setEmotion(this.value)">Anger</button>
-		<button onclick="setEmotion(this.value)">Pity</button>
-		<button onclick="setEmotion(this.value)">Disgust</button>
-		<button onclick="setEmotion(this.value)">Guilt</button>
-		<button onclick="setEmotion(this.value)">Envy</button>
-		<button onclick="setEmotion(this.value)">Regret</button>
-		<button onclick="setEmotion(this.value)">Shame</button>
+		<input type="button" onclick="setEmotion(this.value)">Happiness</input>
+		<input type="button" onclick="setEmotion(this.value)">Affection</input>
+		<input type="button"  onclick="setEmotion(this.value)">Interest</input>
+		<input type="button"  onclick="setEmotion(this.value)">Excitement</input>
+		<input type="button"  onclick="setEmotion(this.value)">Pride</input>
+		<input type="button"  onclick="setEmotion(this.value)">Desire</input>
+		<input type="button"  onclick="setEmotion(this.value)">Love</input>
+		<input type="button"  onclick="setEmotion(this.value)">Loved</input>
+		<input type="button"  onclick="setEmotion(this.value)">Thankfullness</input>
+		<input type="button"  onclick="setEmotion(this.value)">Stress</input>
+		<input type="button"  onclick="setEmotion(this.value)">Hurt</input>
+		<input type="button"  onclick="setEmotion(this.value)">Sadness</input>
+		<input type="button"  onclick="setEmotion(this.value)">Irritation</input>
+		<input type="button"  onclick="setEmotion(this.value)">Anger</input>
+		<input type="button"  onclick="setEmotion(this.value)">Pity</input>
+		<input type="button"  onclick="setEmotion(this.value)">Disgust</input>
+		<input type="button"  onclick="setEmotion(this.value)">Guilt</input>
+		<input type="button"  onclick="setEmotion(this.value)">Envy</input>
+		<input type="button"  onclick="setEmotion(this.value)">Regret</input>
+		<input type="button"  onclick="setEmotion(this.value)">Shame</input>
 		<input id="rating", type="range", min="1", max="10" onchange="document.getElementById('rating-value').value=this.value" /><p id="rating-value"></p>
 		<textarea id="comments">
 
 		</textarea>
-		<button method="POST" type="submit" action="test">Submit</button>
+		<button onClick="test()">Submit</button>
 	</body>
 	
 	
@@ -70,14 +68,14 @@
 	}
 
 	function test() {
-		$.ajax({
-		type: "POST",
-		url: "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec",
-		data: {"Emotion":document.getElementById("emotion").value,"Rating":document.getElementById("rating").value,"Comments":document.getElementById("comments").value},
-		dataType: "json",
-		success: (() => console.log("SUCCESS")),
-		failure: (() => console.log("FAILURE"))
-		});
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", yourUrl, true);
+		xhr.setRequestHeader('Content-Type', 'application/json');
+		xhr.send(JSON.stringify({
+		    "Emotion": document.getElementById("emotion"),
+		    "Rating": document.getElementById("rating"),
+		    "Comments": document.getElementById("comments"),
+		}));
 	}
 	
 	
