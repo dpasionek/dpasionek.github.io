@@ -22,36 +22,34 @@
 	        <link rel="manifest" href="manifest.json">
 	</head>
 	<body>
-		<form>
-			<input hidden id="emotion">
-			<input hidden id="rating">
-			<input hidden id="comments">
-			<button onclick="setEmotion(this.value)">Happiness</button>
-			<button onclick="setEmotion(this.value)">Affection</button>
-			<button onclick="setEmotion(this.value)">Interest</button>
-			<button onclick="setEmotion(this.value)">Excitement</button>
-			<button onclick="setEmotion(this.value)">Pride</button>
-			<button onclick="setEmotion(this.value)">Desire</button>
-			<button onclick="setEmotion(this.value)">Love</button>
-			<button onclick="setEmotion(this.value)">Loved</button>
-			<button onclick="setEmotion(this.value)">Thankfullness</button>
-			<button onclick="setEmotion(this.value)">Stress</button>
-			<button onclick="setEmotion(this.value)">Hurt</button>
-			<button onclick="setEmotion(this.value)">Sadness</button>
-			<button onclick="setEmotion(this.value)">Irritation</button>
-			<button onclick="setEmotion(this.value)">Anger</button>
-			<button onclick="setEmotion(this.value)">Pity</button>
-			<button onclick="setEmotion(this.value)">Disgust</button>
-			<button onclick="setEmotion(this.value)">Guilt</button>
-			<button onclick="setEmotion(this.value)">Envy</button>
-			<button onclick="setEmotion(this.value)">Regret</button>
-			<button onclick="setEmotion(this.value)">Shame</button>
-			<input id="rating", type="range", min="1", max="10" onchange="document.getElementById('rating-value').value=this.value" /><p id="rating-value"></p>
-			<textarea id="comments">
+		<input hidden id="emotion">
+		<input hidden id="rating">
+		<input hidden id="comments">
+		<button onclick="setEmotion(this.value)">Happiness</button>
+		<button onclick="setEmotion(this.value)">Affection</button>
+		<button onclick="setEmotion(this.value)">Interest</button>
+		<button onclick="setEmotion(this.value)">Excitement</button>
+		<button onclick="setEmotion(this.value)">Pride</button>
+		<button onclick="setEmotion(this.value)">Desire</button>
+		<button onclick="setEmotion(this.value)">Love</button>
+		<button onclick="setEmotion(this.value)">Loved</button>
+		<button onclick="setEmotion(this.value)">Thankfullness</button>
+		<button onclick="setEmotion(this.value)">Stress</button>
+		<button onclick="setEmotion(this.value)">Hurt</button>
+		<button onclick="setEmotion(this.value)">Sadness</button>
+		<button onclick="setEmotion(this.value)">Irritation</button>
+		<button onclick="setEmotion(this.value)">Anger</button>
+		<button onclick="setEmotion(this.value)">Pity</button>
+		<button onclick="setEmotion(this.value)">Disgust</button>
+		<button onclick="setEmotion(this.value)">Guilt</button>
+		<button onclick="setEmotion(this.value)">Envy</button>
+		<button onclick="setEmotion(this.value)">Regret</button>
+		<button onclick="setEmotion(this.value)">Shame</button>
+		<input id="rating", type="range", min="1", max="10" onchange="document.getElementById('rating-value').value=this.value" /><p id="rating-value"></p>
+		<textarea id="comments">
 
-			</textarea>
-			<button method="POST" type="submit" action="test">Submit</button>
-		</form>
+		</textarea>
+		<button method="POST" type="submit" action="test">Submit</button>
 	</body>
 	
 	
