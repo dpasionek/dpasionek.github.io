@@ -75,11 +75,10 @@
 		url: "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec",
 		data: {"Emotion":document.getElementById("emotion").value,"Rating":document.getElementById("rating").value,"Comments":document.getElementById("comments").value},
 		dataType: "json",
-		success: success,
+		success: (() => console.log("SUCCESS")),
+		failure: (() => console.log("FAILURE"))
 		});
 	}
 	
-	function success() {
-		console.log("Success!");
-	}
+	
 </script>
