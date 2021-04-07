@@ -71,6 +71,7 @@
 	function test() {
 		var url = "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec&callback=googleDocCallback"
 			$.ajax({
+		          crossDomain: true,
 			  type: "POST",
 			  url: url,
 		          headers: { 
