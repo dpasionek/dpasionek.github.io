@@ -1,0 +1,83 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	        <meta name="apple-mobile-web-app-capable" content="yes">
+	        <meta name="mobile-web-app-capable" content="yes">
+	        
+	        <!-- Have to manually define the icons for iPhones; Android looks at the manifest file -->
+	        <link rel="apple-touch-icon" href="images/icons/icon-512x512.png">
+	        <link rel="apple-touch-icon" href="images/icons/icon-384x384.png">
+	        <link rel="apple-touch-icon" href="images/icons/icon-192x192.png">
+	        <link rel="apple-touch-icon" href="images/icons/icon-144x144.png">
+	        <link rel="apple-touch-icon" href="images/icons/icon-128x128.png">
+	        <link rel="apple-touch-icon" href="images/icons/icon-96x96.png">
+	        <link rel="apple-touch-icon" href="images/icons/icon-72x72.png">
+	        
+	        <!-- Link to the Manifest file  -->
+	        <link rel="manifest" href="manifest.json">
+	</head>
+	<body>
+		<form>
+			<input hidden id="emotion">
+			<input hidden id="rating">
+			<input hidden id="comments">
+			<button onclick="setEmotion(this.value)">Happiness</button>
+			<button onclick="setEmotion(this.value)">Affection</button>
+			<button onclick="setEmotion(this.value)">Interest</button>
+			<button onclick="setEmotion(this.value)">Excitement</button>
+			<button onclick="setEmotion(this.value)">Pride</button>
+			<button onclick="setEmotion(this.value)">Desire</button>
+			<button onclick="setEmotion(this.value)">Love</button>
+			<button onclick="setEmotion(this.value)">Loved</button>
+			<button onclick="setEmotion(this.value)">Thankfullness</button>
+			<button onclick="setEmotion(this.value)">Stress</button>
+			<button onclick="setEmotion(this.value)">Hurt</button>
+			<button onclick="setEmotion(this.value)">Sadness</button>
+			<button onclick="setEmotion(this.value)">Irritation</button>
+			<button onclick="setEmotion(this.value)">Anger</button>
+			<button onclick="setEmotion(this.value)">Pity</button>
+			<button onclick="setEmotion(this.value)">Disgust</button>
+			<button onclick="setEmotion(this.value)">Guilt</button>
+			<button onclick="setEmotion(this.value)">Envy</button>
+			<button onclick="setEmotion(this.value)">Regret</button>
+			<button onclick="setEmotion(this.value)">Shame</button>
+			<input id="rating", type="range", min="1", max="10" onchange="document.getElementById('rating-value').value=this.value" /><p id="rating-value"></p>
+			<textarea id="comments">
+
+			</textarea>
+			<button method="POST" type="submit" action="test">Submit</button>
+		</form>
+	</body>
+	
+	
+</html>
+
+
+<script>
+	function setEmotion(emotion) {
+		document.getElementById("emotion").value = emotion;
+	}
+
+	function setRating(rating) {
+		document.getElementById("rating").value = rating;
+	}
+
+	function setComments(comments) {
+		document.getElementById("comments").value = comments;
+	}
+
+	function test() {
+		$.ajax({
+		type: "POST",
+		url: "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec",
+		data: {"Emotion":document.getElementById("emotion").value,"Rating":document.getElementById("rating").value,"Comments":document.getElementById("comments").value},
+		success: console.log("SUCCESS"),
+		failure: console.log("FAILURE"),
+		});
+	}
+</script>

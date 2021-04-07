@@ -1,12 +1,12 @@
 {
-  "name": "JM/DP",
-  "short_name": "JM/DP",
+  "name": "EmotionLogger",
+  "short_name": "EmotionLogger",
   "theme_color": "#3090c7",
   "background_color": "#3090c7",
   "display": "fullscreen",
   "orientation": "portrait",
-  "Scope": "/joe",
-  "start_url": "/joe/joe.html",
+  "Scope": "/app",
+  "start_url": "/app/app.html",
   "icons": [
     {
       "src": "images/icons/icon-72x72.png",
