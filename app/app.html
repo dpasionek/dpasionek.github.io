@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<meta charset="utf-8"/>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -69,15 +70,21 @@
 
 	function test() {
 		var url = "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec&callback=googleDocCallback"
-		var xhr = new XMLHttpRequest();
-		xhr.open("POST", url, false);
-		xhr.setRequestHeader('Content-Type', 'text/plain');
-		xhr.setRequestHeader('Access-Control-Allow-Origin','*');
-		xhr.send(JSON.stringify({
-		    "Emotion": document.getElementById("emotion"),
-		    "Rating": document.getElementById("rating"),
-		    "Comments": document.getElementById("comments"),
-		}));
+			$.ajax({
+			  type: "POST",
+			  url: url,
+		          headers: { 
+				    'Content-Type': 'text/plain',
+				    'Access-Control-Allow-Origin': '*'
+				  },
+			  data: JSON.stringify({
+				    "Emotion": document.getElementById("emotion"),
+				    "Rating": document.getElementById("rating"),
+				    "Comments": document.getElementById("comments"),
+				}),
+			  success: () => console.log("SUCCESS"),
+			});
+		
 	}
 	
 	window.googleDocCallback = function () { return true; };
