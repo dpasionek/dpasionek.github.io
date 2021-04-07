@@ -72,6 +72,7 @@
 		var xhr = new XMLHttpRequest();
 		xhr.open("POST", url, false);
 		xhr.setRequestHeader('Content-Type', 'text/plain');
+		xhr.setRequestHeader('Access-Control-Allow-Origin','*');
 		xhr.send(JSON.stringify({
 		    "Emotion": document.getElementById("emotion"),
 		    "Rating": document.getElementById("rating"),
