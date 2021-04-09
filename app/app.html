@@ -1,4 +1,31 @@
 <html>
+	<style>
+		#emotion-selection {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			height: 95%;
+		}
+
+		#rating-selection {
+			display: none;
+			align-items: center;
+
+		}
+
+		#comment-section {
+			display: none;
+			align-items: center;
+
+		}
+
+		input[type=button] {
+			width: 95%;
+			height: 5%;
+			margin-bottom: 5px;
+		}
+
+	</style>
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 		<meta charset="utf-8"/>
@@ -24,31 +51,50 @@
 		<input hidden id="emotion">
 		<input hidden id="rating">
 		<input hidden id="comments">
-		<input type="button" onclick="setEmotion(this.value)" value="Happiness"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Affection"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Interest"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Excitement"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Pride"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Desire"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Love"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Loved"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Thankfulness"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Stress"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Hurt"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Sadness"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Irritation"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Anger"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Pity"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Disgust"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Guilt"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Envy"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Regret"/>
-		<input type="button" onclick="setEmotion(this.value)" value="Shame"/>
-		<input id="rating", type="range", min="1", max="10" onchange="document.getElementById('rating-value').value=this.value" /><p id="rating-value"></p>
-		<textarea id="comments">
+		<div id="emotion-selection">
+			<input type="button" onclick="setEmotion(this.value)" value="Happiness"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Affection"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Interest"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Excitement"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Pride"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Desire"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Love"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Loved"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Thankfulness"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Stress"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Hurt"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Sadness"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Irritation"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Anger"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Pity"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Disgust"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Guilt"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Envy"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Regret"/>
+			<input type="button" onclick="setEmotion(this.value)" value="Shame"/>
+			<div style="display: flex; flex-direction: row; width: 100%; height: 15%; justify-content: center;">
+				<button style="width: 40%; height: 50%; margin-top: 6%; align-self: center;" onclick="next('emotion-selection')">Next</button>
+			</div>
+		</div>
 
-		</textarea>
-		<button onClick="test()">Submit</button>
+		<div id="rating-selection" style="display: hidden; flex-direction: column;">
+			<input id="rating", type="range", min="1", max="10" value="1" onchange="setRating(this.value)" />
+			<br/>
+			<p id="rating-value"></p>
+			<div style="display: flex; flex-direction: row; width: 100%; height: 15%; justify-content: center;">
+				<button style="width: 40%; height: 7%; margin-top: 6%; " onclick="back('rating-selection')">Back</button>
+				<button style="width: 40%; height: 7%; margin-top: 6%; " onclick="next('rating-selection')">Next</button>
+			</div>
+		</div>
+		
+		<div id="comment-section" style="display: hidden; flex-direction: column;">
+			<textarea id="comments" onchange="setComments(this.innerHTML)"></textarea>
+			<div style="display: flex; flex-direction: row; width: 100%; height: 15%; justify-content: center;">
+				<button style="width: 40%; height: 7%; margin-top: 6%; " onclick="back('comment-section')">Back</button>
+				<button style="width: 40%; height: 7%; margin-top: 6%; " onclick="next('comment-section')">Next</button>
+			</div>
+		</div>
+
 	</body>
 	
 	
@@ -62,41 +108,48 @@
 
 	function setRating(rating) {
 		document.getElementById("rating").value = rating;
+		document.getElementById("rating-value").innerHTML = rating;
 	}
 
 	function setComments(comments) {
-		document.getElementById("comments").value = comments;
+		//document.getElementById("comments").innerHTML = comments;
 	}
 
-	function test() {
-		var url = "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec&callback=googleDocCallback"
-			$.ajax({
-		          crossDomain: true,
-			  type: "POST",
-			  url: url,
-		          headers: { 
-				    'Content-Type': 'text/plain',
-				    'Access-Control-Allow-Origin': '*'
-				  },
-			  data: JSON.stringify({
-				    "Emotion": document.getElementById("emotion"),
-				    "Rating": document.getElementById("rating"),
-				    "Comments": document.getElementById("comments"),
-				}),
-			  success: () => console.log("SUCCESS"),
-			});
-		
+	function next(parent) {
+		if(parent === "emotion-selection") {
+			document.getElementById("emotion-selection").style.display = "none";
+			document.getElementById("rating-selection").style.display = "flex";
+		} else if(parent === "rating-selection") {
+			document.getElementById("rating-selection").style.display = "none";
+			document.getElementById("comment-section").style.display = "flex";
+		} else if(parent === "comment-section") {
+			post()
+			document.getElementById("comment-section").style.display = "none";
+			document.getElementById("emotion-selection").style.display = "flex";
+		}
 	}
-	
+
+	function back(parent) {
+		if(parent === "emotion-selection") {
+			document.getElementById("emotion-selection").style.display = "flex";
+		} else if(parent === "rating-selection") {
+			document.getElementById("emotion-selection").style.display = "flex";
+			document.getElementById("rating-selection").style.display = "none";
+		} else if(parent === "comment-section") {
+			document.getElementById("comment-section").style.display = "none";
+			document.getElementById("rating-selection").style.display = "flex";
+		}
+	}
+
 	function post() {
-	  var url = "https://script.google.com/macros/s/AKfycbyf5rqxAsy-GI6IL61mLLPjrRbLmmibJ-Fv7H2h47Si5HqMJpoeY1nInkVxpZBoWUkO/exec&callback=googleDocCallback"
+	  var url = "https://script.google.com/macros/s/AKfycbz9lurXCM4EVgn2tYf6Ds9_uKcR2tEDHiFgjOdeqP9ud1FTznqUaZquIBvcxR6pctv9qQ/exec"
 	  fetch(url, {mode:'no-cors', method: "POST", body: JSON.stringify({
-				    "Emotion": document.getElementById("emotion"),
-				    "Rating": document.getElementById("rating"),
-				    "Comments": document.getElementById("comments"),
-				}) })
+				    "Emotion": document.getElementById("emotion").value,
+				    "Rating": document.getElementById("rating").value,
+				    "Comments": document.getElementById("comments").innerHTML.toString(),
+				})})
 	    .then((res) => {
-	      console.log(res.status);
+	    
 	      return res.text();
 	    })
     .then((res) => console.log(res));
