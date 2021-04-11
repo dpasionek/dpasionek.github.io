@@ -1,10 +1,35 @@
 <html>
 	<style>
+		body {
+			background: rgb(2,0,36);
+			background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,212,255,1) 0%, rgba(11,221,178,0.3292892156862745) 72%);
+		}
 		#emotion-selection {
 			display: flex;
 			flex-direction: column;
-			align-items: center;
-			height: 95%;
+			text-align: center;
+			height: 100%;
+			width: 100%
+		}
+
+		.emotions-list {
+			display: flex;
+			flex-direction: row;
+			height: 85%
+		}
+
+		.emotions-1 {
+			width: 50%;
+			float: left;
+		}
+
+		.emotions-2 {
+			width: 50%;
+			float: right;
+		}
+
+		.column {
+			height: 100%;
 		}
 
 		#rating-selection {
@@ -21,9 +46,20 @@
 
 		input[type=button] {
 			width: 95%;
-			height: 5%;
+			height: 8%;
 			margin-bottom: 5px;
+			background-color: rgb(214, 178, 16);
 		}
+
+		.pressed {
+			background-color: rgb(18, 192, 27) !important;
+		}
+
+		.slider {
+			width: 90%;
+			height: 25px;
+		}
+
 
 	</style>
 	<head>
@@ -52,46 +88,55 @@
 		<input hidden id="rating">
 		<input hidden id="comments">
 		<div id="emotion-selection">
-			<input type="button" onclick="setEmotion(this.value)" value="Happiness"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Affection"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Interest"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Excitement"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Pride"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Desire"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Love"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Loved"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Thankfulness"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Stress"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Hurt"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Sadness"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Irritation"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Anger"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Pity"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Disgust"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Guilt"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Envy"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Regret"/>
-			<input type="button" onclick="setEmotion(this.value)" value="Shame"/>
-			<div style="display: flex; flex-direction: row; width: 100%; height: 15%; justify-content: center;">
-				<button style="width: 40%; height: 50%; margin-top: 6%; align-self: center;" onclick="next('emotion-selection')">Next</button>
+			<h3>What are you currently feeling?</h3>
+			<div class="emotions-list">
+				<div class="emotions-1">
+					<input id="happiness" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Happiness"/>
+					<input id="affection" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Affection"/>
+					<input id="interest" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Interest"/>
+					<input id="excitement" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Excitement"/>
+					<input id="pride" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Pride"/>
+					<input id="desire" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Desire"/>
+					<input id="love" type="button"onclick="setEmotion(this.value); setButtonState(this.id)" value="Love"/>
+					<input id="loved" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Loved"/>
+					<input id="thankfulness" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Thankfulness"/>
+					<input id="stress" type="button"onclick="setEmotion(this.value); setButtonState(this.id)" value="Stress"/>
+				</div>		
+				<div class="emotions-2">
+					<input id="hurt" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Hurt"/>
+					<input id="sadness" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Sadness"/>
+					<input id="irritation" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Irritation"/>
+					<input id="anger" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Anger"/>
+					<input id="pity" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Pity"/>
+					<input id="disgust" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Disgust"/>
+					<input id="guilt" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Guilt"/>
+					<input id="envy" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Envy"/>
+					<input id="regret" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Regret"/>
+					<input id="shame" type="button" onclick="setEmotion(this.value); setButtonState(this.id)" value="Shame"/>
+				</div>
 			</div>
+			<div style="display: flex; flex-direction: row; width: 100%; height: 15%; justify-content: center;">
+				<button style="width: 40%; height: 50%; align-self: center;" onclick="next('emotion-selection')">Next</button>
+			</div>			
 		</div>
 
-		<div id="rating-selection" style="display: hidden; flex-direction: column;">
-			<input id="rating", type="range", min="1", max="10" value="1" onchange="setRating(this.value)" />
+		<div id="rating-selection" style="display: hidden; flex-direction: column; height: 50%">
+			<h3>On a scale of 1-10 this, or these, feelings are: </h3>
+			<input class="slider" id="rating", type="range", min="1", max="10" value="1" oninput="setRating(this.value)" />
 			<br/>
-			<p id="rating-value"></p>
-			<div style="display: flex; flex-direction: row; width: 100%; height: 15%; justify-content: center;">
-				<button style="width: 40%; height: 7%; margin-top: 6%; " onclick="back('rating-selection')">Back</button>
-				<button style="width: 40%; height: 7%; margin-top: 6%; " onclick="next('rating-selection')">Next</button>
+			<h1 id="rating-value">1</h1>
+			<div style="display: flex; flex-direction: row; width: 100%; height: 30%; justify-content: space-between;">
+				<button style="width: 40%; height: 50%; " onclick="back('rating-selection')">Back</button>
+				<button style="width: 40%; height: 50%; " onclick="next('rating-selection')">Next</button>
 			</div>
 		</div>
 		
-		<div id="comment-section" style="display: hidden; flex-direction: column;">
-			<textarea id="comments" onchange="setComments(this.innerHTML)"></textarea>
-			<div style="display: flex; flex-direction: row; width: 100%; height: 15%; justify-content: center;">
-				<button style="width: 40%; height: 7%; margin-top: 6%; " onclick="back('comment-section')">Back</button>
-				<button style="width: 40%; height: 7%; margin-top: 6%; " onclick="next('comment-section')">Next</button>
+		<div id="comment-section" style="display: hidden; flex-direction: column; height: 70%">
+			<h3>Any additional comments?</h3>
+			<textarea style="width: 80%; height: 40%" id="comments" onkeypress="setComments(this.value)" onchange="setComments(this.value)"></textarea>
+			<div style="display: flex; flex-direction: row; width: 100%; height: 25%; justify-content: space-between;">
+				<button style="width: 40%; height: 50%; margin-top: 6%; " onclick="back('comment-section')">Back</button>
+				<button style="width: 40%; height: 50%; margin-top: 6%; " onclick="next('comment-section')">Next</button>
 			</div>
 		</div>
 
@@ -102,8 +147,23 @@
 
 
 <script>
+
+	var emotions = []
+	var comment = ""
+	function setButtonState(button) {
+		var element = document.getElementById(button)
+		if(element.classList.contains("pressed")) {
+			element.classList.remove("pressed")
+			var idx = emotions.indexOf(element.value)
+			emotions.splice(idx, 1)
+
+		} else {
+			element.classList.add("pressed")
+			emotions.push(element.value)
+		}
+	}
+
 	function setEmotion(emotion) {
-		document.getElementById("emotion").value = emotion;
 	}
 
 	function setRating(rating) {
@@ -112,13 +172,30 @@
 	}
 
 	function setComments(comments) {
-		//document.getElementById("comments").innerHTML = comments;
+		comment = comments
+	}
+
+	function reset() {
+			document.getElementById("emotion-selection").style.display = "flex";
+			document.getElementById("rating-selection").style.display = "none";
+			document.getElementById("comment-section").style.display = "none";
+
+			emotions = []
+			comment = ""
+
+			var buttons = document.querySelectorAll("input[type=button]")
+			buttons.forEach((button) => {
+				if(button.classList.contains("pressed")) {
+					button.classList.remove("pressed")
+				}
+			})
 	}
 
 	function next(parent) {
 		if(parent === "emotion-selection") {
 			document.getElementById("emotion-selection").style.display = "none";
 			document.getElementById("rating-selection").style.display = "flex";
+			document.getElementById("comment-section").style.display = "none";
 		} else if(parent === "rating-selection") {
 			document.getElementById("rating-selection").style.display = "none";
 			document.getElementById("comment-section").style.display = "flex";
@@ -126,6 +203,7 @@
 			post()
 			document.getElementById("comment-section").style.display = "none";
 			document.getElementById("emotion-selection").style.display = "flex";
+			reset()
 		}
 	}
 
@@ -142,11 +220,13 @@
 	}
 
 	function post() {
+	  console.log("EMOTIONS: " + emotions)
+	  console.log("COMMENTS: " + comment)
 	  var url = "https://script.google.com/macros/s/AKfycbz9lurXCM4EVgn2tYf6Ds9_uKcR2tEDHiFgjOdeqP9ud1FTznqUaZquIBvcxR6pctv9qQ/exec"
 	  fetch(url, {mode:'no-cors', method: "POST", body: JSON.stringify({
-				    "Emotion": document.getElementById("emotion").value,
+				    "Emotion": emotions.join(),
 				    "Rating": document.getElementById("rating").value,
-				    "Comments": document.getElementById("comments").innerHTML.toString(),
+				    "Comments": comment,
 				})})
 	    .then((res) => {
 	    
@@ -154,8 +234,5 @@
 	    })
     .then((res) => console.log(res));
 }
-	
-	window.googleDocCallback = function () { return true; };
-
 	
 </script>
